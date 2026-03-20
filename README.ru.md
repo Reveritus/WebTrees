@@ -10,7 +10,7 @@
 
 ## Содержание
 
-* [Лицензия](#license)
+* [Лицензия](#Лицензия)
 * [Стили и стандарты кодирования](#coding-styles-and-standards)
 * [Введение](#introduction)
 * [Системные требования](#system-requirements)
@@ -23,7 +23,7 @@
 * [Резервное копирование](#backup)
 * [Восстановление из резервной копии](#restore-from-backup)
 
-## License
+## Лицензия
 
 * **webtrees: online genealogy**
 * Copyright 2022 webtrees development team

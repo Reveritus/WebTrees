@@ -6,22 +6,22 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/fisharebest/webtrees/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/fisharebest/webtrees/?branch=main)
 [![Code Climate](https://codeclimate.com/github/fisharebest/webtrees/badges/gpa.svg)](https://codeclimate.com/github/fisharebest/webtrees)
 [![StyleCI](https://github.styleci.io/repos/11836349/shield?branch=main)](https://github.styleci.io/repos/11836349?branch=main)
-# webtrees - online collaborative genealogy
+# WebTrees - online collaborative genealogy
 
-## Contents
+## Содержание
 
-* [License](#license)
-* [Coding styles and standards](#coding-styles-and-standards)
-* [Introduction](#introduction)
-* [System requirements](#system-requirements)
-* [Internet browser compatibility](#browser-compatibility)
-* [Installation](#installation)
-* [Upgrading](#upgrading)
-* [Building and developing](#building-and-developing)
-* [Gedcom (family tree) files](#gedcom-family-tree-files)
-* [Security](#security)
-* [Backup](#backup)
-* [Restore from Backup](#restore-from-backup)
+* [Лицензия](#license)
+* [Стили и стандарты кодирования](#coding-styles-and-standards)
+* [Введение](#introduction)
+* [Системные требования](#system-requirements)
+* [Браузерная совместимость](#browser-compatibility)
+* [Установка](#installation)
+* [Обновление](#upgrading)
+* [Создание и развитие](#building-and-developing)
+* [Файлы GEDCOM (семейное древо)](#gedcom-family-tree-files)
+* [Безопасность](#security)
+* [Резервное копирование](#backup)
+* [Восстановление из резервной копии](#restore-from-backup)
 
 ## License
 
@@ -59,233 +59,245 @@ We do not currently use [PSR-3 (logging)](https://www.php-fig.org/psr/psr-3) - b
 
 For JavaScript, we use [semistandard](https://github.com/standard/semistandard).
 
-## Introduction
+## Введение
 
-**webtrees** is the web's leading online collaborative genealogy application.
+**WebTrees** это ведущее в Интернете приложение для совместной работы в области генеалогии.
 
-* It works from standard GEDCOM files, and is therefore compatible with every
-major desktop application.
-* It aims to to be efficient and effective by using the right combination of
-third-party tools, design techniques and open standards.
+* Работает со стандартными файлами GEDCOM и поэтому совместим со всеми
+основными настольными приложениями.
+* Направлено на эффективность за счет использования правильного сочетания
+сторонних инструментов, методов проектирования и открытых стандартов.
+**WebTrees** позволяет просматривать и редактировать вашу генеалогию на вашем 
+веб-сайте. Программа обладает широкими возможностями редактирования, функциями
+обеспечения конфиденциальности и поддерживает мультимедийные файлы фотографий
+и изображения документов. Как онлайн-программа, способствует активному участию
+всей семьи и хорошим традициям ведения записей предков, поскольку упрощает процесс
+сотрудничества с другими людьми, работающими по линии вашей семьи. Ваша самая
+свежая информация всегда находится на вашем веб-сайте и доступна для просмотра
+другим пользователям в соответствии с установленными вами правилами просмотра.
+Для получения дополнительной информации и ознакомления с рабочей демонстрацией
+посетите сайт [webtrees.net](https://webtrees.net/).
 
-**webtrees** allows you to view and edit your genealogy on your website. It has
-full editing capabilities, full privacy functions, and supports imedia such as
-photos and document images. As an online program, it fosters extended family
-participation and good ancestral recording habits, as it simplifies the process
-of collaborating with others working on your family lines. Your latest information
-is always on your web site and available for others to see, defined by viewing
-rules you set. For more information and to see working demos, visit
-[webtrees.net](https://webtrees.net/).
+**WebTrees** это программное обеспечение с открытым исходным кодом, которое было
+создано людьми из многих стран, добровольно отдающих свое время и таланты проекту.
+Все услуги, поддержка и дальнейшее развитие зависят от времени, которое 
+разработчики готовы потратить на проект, часто в ущерб работе, отдыху и семье.
+Помимо нескольких пожертвований, полученных от пользователей, разработчики не
+получают никакой компенсации за время, потраченное на работу над проектом.
+Также нет внешнего источника дохода для поддержки проекта. Пожалуйста, учитывайте
+эти обстоятельства, когда обращаетесь с просьбами о поддержке и подумайте о том,
+чтобы пожертвовать своим временем и навыками, чтобы сделать проект еще сильнее
+и лучше.
 
-**webtrees** is Open Source software that has been produced by people from many
-countries freely donating their time and talents to the project. All service,
-support, and future development is dependent on the time developers are willing
-to donate to the project, often at the expense of work, recreation, and family.
-Beyond the few donations received from users, developers receive no compensation
-for the time they spend working on the project. There is also no outside source
-of revenue to support the project. Please consider these circumstances when
-making support requests and consider volunteering your own time and skills to make
-the project even stronger and better.
+## Системные требования
 
-## System requirements
+Для установки **WebTrees**, вам необходимы:
 
-To install **webtrees**, you need:
-
-* A webserver. Apache, NGINX and IIS are the most common types. To use “Pretty URLs”, you will need to configure URL rewriting"
-* A database. MySQL is recommended, although PostgreSQL, SQL-Server and SQLite can be used. Some features rely on MySQL for collation.  Other database might not sort names according to local rules.  **webtrees** uses a prefix for its table names, so you can install several instances of webtrees in the same database.
-* Approximately 100MB of disk space for the application files, plus whatever is
-  needed for your media files, GEDCOM files and database.
-* PHP 7.1 - 7.4. Servers with PHP 5.3 - 7.0 can use **webtrees** 1.7.
-   * PHP should be configured to allow sufficient server resources (memory and
-     execution time) for the size of your system. Typical requirements are:
-      * Small systems (500 individuals): 16–32 MB, 10–20 seconds
-      * Medium systems (5,000 individuals): 32–64 MB, 20–40 seconds
-      * Large systems (50,000 individuals): 64–128 MB, 40–80 seconds
-
-## Browser compatibility
+* Веб-сервер. Наиболее распространенными типами являются Apache, NGINX и IIS. Чтобы использовать “Красивые URL-адреса”, вам необходимо настроить перезапись URL-адресов.
+* База данных. Рекомендуется использовать MySQL, хотя можно использовать PostgreSQL, SQL-Server и SQLite. Некоторые функции используют MySQL для сортировки.  В других базах данных имена могут сортироваться не по местным правилам.  **WebTrees** использует префикс для имен своих таблиц, поэтому вы можете установить несколько экземпляров WebTrees в одной базе данных.
+* Примерно 100 МБ дискового пространства для файлов приложения, а также все
+необходимое для ваших медиафайлов, файлов GEDCOM и баз данных.
+* PHP 7.1 - 7.4. Серверы с PHP 5.3 - 7.0 могут использовать **WebTrees** 1.7.
+   * PHP должен быть настроен таким образом, чтобы ресурсов сервера (памяти и
+времени выполнения) было достаточно для размера вашей системы. Типичные требования:
+      * Небольшие системы (500 пользователей): 16-32 МБ, 10-20 секунд.
+      * Средние системы (5000 пользователей): 32-64 МБ, 20-40 секунд.
+      * Большие системы (50 000 пользователей): 64-128 МБ, 40-80 секунд.
+      
+## Браузерная совместимость
   
-  **webtrees** is tested on recent versions of popular browsers such as Edge, Firefox,
-  Chrome, and Safari.  Support for other browsers and older versions is on a case-by-case basis.
+**WebTrees** тестируется в последних версиях популярных браузеров, таких как Edge, Firefox, 
+Chrome и Safari. Поддержка других браузеров и более старых версий осуществляется в индивидуальном порядке.
 
-## Installation
+## Установка
 
-1. Download the .ZIP file for latest stable version from [github.com](https://github.com/fisharebest/webtrees/releases/latest).
-2. Unzip the files and then upload them to an empty folder on your web server.
-3. Open your web browser and type the URL for your **webtrees** site (for example,
-   ``https://www.yourserver.com/webtrees`` into the address bar.
-4. The **webtrees** setup wizard will start automatically.
+1. Загрузите ZIP-файл последней стабильной версии с [github.com](https://github.com/fisharebest/webtrees/releases/latest).
+2. Распакуйте файлы и затем загрузите их в пустую папку на вашем веб-сервере.
+3. Откройте веб-браузер и введите URL-адрес вашего сайта **WebTrees** (например,
+   `https://www.yourserver.com/webtrees` в адресную строку.
+4. Мастер настройки **WebTrees** запустится автоматически.
 
-Your first task will be to create a family tree.
+Вашей первой задачей будет создание генеалогического древа.
 
-If you have a GEDCOM file, you can import it into the tree. If not, just start
-entering your family tree. 
+Если у вас есть файл GEDCOM, вы можете импортировать его в дерево. Если нет,
+просто начните вводить свое генеалогическое древо.
 
-There are lots of configuration options. You'll probably want to review the
-privacy settings first. Don't worry too much about all the other options - the
-defaults are good for most people. If you get stuck, you can get friendly help
-and advice from the [help](https://www.webtrees.net/index.php/forum) forum.
+Существует множество вариантов настройки. Возможно, вы захотите сначала ознакомиться
+с настройками конфиденциальности. Не беспокойтесь обо всех остальных параметрах - настройки по
+умолчанию подходят большинству пользователей. Если вы застряли, вы можете получить дружескую помощь
+и совет на [форуме](https://www.webtrees.net/index.php/forum).
 
-## Upgrading
+## Обновление
 
-Upgrading **webtrees** is quick and easy. It is strongly recommended that you
-upgrade your installation whenever a new version is made available. Even minor
-**webtrees** version updates usually contain a significant number of bug fixes
-as well as interface improvements and program enhancements.
+Обновление **WebTrees** происходит быстро и просто. Настоятельно рекомендуется
+обновлять установленную программу всякий раз, когда становится доступной новая версия.
+Даже незначительные изменения обновления версий WebTrees обычно содержат значительное
+количество исправлений ошибок, а также улучшений интерфейса и программы.
 
-* **Automatic upgrade**
+* **Автоматическое обновление**
 
-  **webtrees** has an automatic upgrade facility. An administrator upon logging in
-will receive notification when a new version is available and an option to start
-the automatic upgrade. If for some reason the automatic upgrade should fail
-then a manual upgrade should be performed.
+  **WebTrees** поддерживает автоматическое обновление. Администратор при входе в
+систему получит уведомление о доступности новой версии и возможность запустить
+автоматическое обновление. Если по какой-либо причине автоматическое обновление
+не удалось выполнить, следует выполнить обновление вручную.
 
-* **Manual upgrade**
+* **Обновление вручную**
 
-  1. Now would be a good time to make a [backup](#backup).
-  2. Download the latest version of **webtrees** available from
-   [webtrees.net](https://webtrees.net/)
-  3. While you are in the middle of uploading the new files,
-   a visitor to your site would encounter a mixture of new and old files. This
-   could cause unpredictable behavior or errors. To prevent this, create the
-   file **data/offline.txt**. While this file exists, visitors will see a
-   “site unavailable - come back later” message.
-  4. Unzip the .ZIP file, and upload the files to your web server, overwriting the existing files.
-  5. Delete the file **data/offline.txt**.
+  1. Сейчас самое время создать [резервную копию](#backup).
+  2. Загрузите последнюю версию **WebTrees**, доступную с сайта
+     [webtrees.net](https://webtrees.net/)
+  3. Пока вы загружаете новые файлы, посетитель вашего сайта может столкнуться
+     со смесью новых и старых файлов. Это может привести к непредсказуемому 
+     поведению или ошибкам. Чтобы предотвратить это, создайте файл **data/offline.txt**.
+     Пока этот файл существует, посетители будут видеть сообщение “сайт недоступен
+     - зайдите позже”.
+  4. Распакуйте ZIP-файл и загрузите файлы на свой веб-сервер, перезаписав существующие
+     файлы.
+  5. Удалите файл **data/offline.txt**.
 
-### Note for Macintosh users
+### Примечание для пользователей Macintosh
 
-Step 4 assumes you are using a copy tool that **merges** directories rather than
-replaces them. (**Merge** is standard behavior on Windows and Linux.) If you use
-the Macintosh Finder or other similar tool to perform step 3, it will **replace**
-your configuration, media and other directories with the empty/default ones from
-the installation. This would be very bad (but you did take a backup in step 1,
-didn't you!). Further details and recommendations for suitable tools can be found
-by searching [google.com](https://google.com).
+На шаге 4 предполагается, что вы используете инструмент копирования, который **объединяет**
+папки, а не заменяет их. (** Слияние** является стандартным поведением в Windows и Linux.)
+Если вы используете Macintosh Finder или другой подобный инструмент для выполнения шага 3,
+он ** заменит** ваши папки конфигурации, мультимедиа и другие папки на пустые папки по
+умолчанию, указанные при установке. Это было бы очень плохо (но вы ведь сделали резервную
+копию на шаге 1, не так ли?). Более подробную информацию и рекомендации по подходящим 
+инструментам можно найти, выполнив поиск [google.com](https://google.com).
 
-## Building and developing
+## Создание и развитие
 
-If you want to build webtrees from source, or modify the code, you'll need to install
-a couple of tools first.
+Если вы хотите создавать WebTrees из исходного кода или изменять код, вам сначала нужно
+установить пару инструментов.
 
-You will need [composer](https://getcomposer.org/) to install the PHP dependencies.
-Then run this command::
+Вам понадобится [composer](https://getcomposer.org/) для установки зависимостей PHP.
+Затем запустите эту команду::
 
 * php composer.phar install
 
-You will need [npm](https://www.npmjs.com/get-npm) to install the Javascript dependencies.
-Then run the commands:
+Вам понадобится [npm](https://www.npmjs.com/get-npm) для установки зависимостей Javascript.
+Затем запустите команды:
 
 * npm install
 * npm run production
 
-You will need to re-run the second of these any time you modify the file `webtrees.js`.
+Вам нужно будет повторно запускать второй из них каждый раз, когда вы будете изменять
+файл `webtrees.js`.
 
-## Gedcom (family tree) files
+## Файлы Gedcom (семейное древо)
 
-When you import a family tree (GEDCOM) file in **webtrees** the
-data from the file is transferred to the database tables. The file itself 
-remains in the **webtrees/data** folder and is no longer used or required
-by **webtrees**. Any subsequent editing of the **webtrees** data
-will not change this file
+Когда вы импортируете файл семейного древа (GEDCOM) в **WebTrees**, данные из файла
+переносятся в таблицы базы данных. Сам файл остается в папке **webtrees/data** и больше
+не используется и не требуется **WebTrees**. Любое последующее редактирование данных 
+**WebTrees** не приведет к изменению этого файла
 
-When or if you change your genealogy data outside of **webtrees**, it is not
-necessary to delete your GEDCOM file or database from **webtrees** and start
-over. Follow these steps to update a GEDCOM that has already been imported:
+При изменении ваших генеалогических данных за пределами **WebTrees** нет
+необходимости удалять ваш файл GEDCOM или базу данных из **WebTrees** и начинать
+все сначала. Выполните следующие действия, чтобы обновить уже импортированный GEDCOM:
 
-* Go to ``Control panel`` -> ``Manage family trees`` On the line relating to this particular family tree (GEDCOM)
-  file (or a new one) select IMPORT.
-* Take careful note of the media items option (_“If you have created media objects
-  in **webtrees**, and have edited your data off-line using software that
-  deletes media objects, then tick this box to merge the current media objects
-  with the new GEDCOM.”_) In most cases you should leave this box **UNCHECKED**.
-* Click “SAVE”. **webtrees** will validate the GEDCOM again before importing.
-  During this process, **webtrees** copies your entire family tree (GEDCOM file)
-  to a 'chunk' table within your database. Depending on the coding of your file,
-  its file size and the capabilities of your server and the supporting software,
-  this may take some time. **No progress bar will show while the data is being
-  copied** and should you navigate away from this page, the process is suspended.
-  It will start again when you return to the Family Tree management page.
+* Перейдите в `Панель управления` -> `Управление семейными древами`. В строке,
+относящейся к данному конкретному древу (GEDCOM) выберите ИМПОРТ файла  (или нового).
+* Обратите внимание на параметр “медиаэлементы" (_"Если вы создали медиаобъекты
+  в **WebTrees** и отредактировали свои данные в автономном режиме с помощью
+  программного обеспечения, которое удаляет медиаобъекты, затем установите этот флажок, 
+  чтобы объединить текущие медиаобъекты с новым GEDCOM”._) В большинстве случаев вам 
+  следует оставить этот флажок **СНЯТЫМ**.
+* Нажмите "СОХРАНИТЬ”. **WebTrees** еще раз проверит GEDCOM перед импортом.
+  Во время этого процесса **WebTrees** копирует все ваше древо (файл GEDCOM)
+  в таблицу "chunk" в вашей базе данных. В зависимости от кода вашего файла, его размера 
+  и возможностей вашего сервера и поддерживающего программного обеспечения это может 
+  занять некоторое время. **Во время копирования данных индикатор выполнения не будет 
+  отображаться**, а если вы покинете эту страницу, процесс будет приостановлен.
+  Это начнется снова, когда вы вернетесь на страницу управления древом.
+  
+## Безопасность
 
-## Security
+**Безопасность ** в _WebTrees_ означает обеспечение безопасности вашего сайта от 
+нежелательных вторжений, взлома или доступа к данным и файлам конфигурации. Разработчики
+_WebTrees_ считают безопасность чрезвычайно важной частью своего развития и приложили 
+все усилия для обеспечения безопасности ваших данных.
 
-**Security** in _webtrees_ means ensuring your site is safe from unwanted
-intrusions, hacking, or access to data and configuration files. The developers
-of _webtrees_ regard security as an extremely important part of its development
-and have made every attempt to ensure your data is safe.
+Областью, наиболее подверженной риску проникновения, является папка **/data**, в которой 
+находится ваш файл config.ini.php и различные временные файлы. Если вы обеспокоены
+возможным риском, вы можете выполнить очень простой тест: попробуйте извлечь файл 
+config.ini.php набрав **`url_to_your_server/data/config.ini.php`** в вашем веб-браузере.
 
-The area most at risk of intrusion would be the **/data** folder that contains your
-config.ini.php file, and various temporary files. If you are concerned there
-may be a risk there is a very simple test you can do: try to fetch the file 
-config.ini.php by typing **``url_to_your_server/data/config.ini.php``** in your web
-browser.
+Наиболее вероятным результатом является сообщение “доступ запрещен”, подобное этому:
 
-The most likely result is an “access denied” message like this:
+    Forbidden (запрещенный)
 
-    Forbidden
+    У вас нет разрешения на доступ к /data/config.ini.php на этом сервере.
 
-    You don't have permission to access /data/config.ini.php on this server.
+Это означает, что защита, встроенная в **WebTrees**, работает и никаких дальнейших 
+действий не требуется.
 
-This indicates that the protection built into **webtrees** is working, and no
-further action is required.
+В том маловероятном случае, если вы все-таки получите файл (вы просто увидите точку 
+с запятой), это означает, что защита на вашем сайте не работает, и вам следует 
+предпринять какие-либо дальнейшие действия.
 
-In the unlikely event you do fetch the file (you will just see a semicolon),
-then that protection is not working on your site and you should take some further
-action.
+Если ваш сервер запускает PHP в режиме CGI, измените разрешение для папки **/data**
+на 700 вместо 777. Это заблокирует доступ к процессу httpd, но при этом разрешит 
+доступ к PHP-скриптам.
 
-If your server runs PHP in CGI mode, then change the permission of the **/data**
-folder to 700 instead of 777. This will block access to the httpd process,
-while still allowing access to PHP scripts.
+Это сработает, возможно, для 99% всех пользователей. Только оставшемуся 1% следует 
+рассмотреть наиболее сложное решение - переместить папку **/data** из доступного веб
+-пространства. (** Примечание: _** Во многих средах общего хостинга это все равно 
+не вариант.)
 
-This will work for perhaps 99% of all users. Only the remaining 1% should consider
-the most complex solution, moving the **/data** folder out of accessible web
-space. (**_Note:_** In many shared hosting environments this is not an option anyway.)
+Если вы считаете это необходимым, ниже приведен пример требуемого процесса:
 
-If you do find it necessary, following is an example of the process required:
+Если ваша домашняя папка имеет вид **/home/username**, и корневой папкой для вашего 
+веб-сайта является **/home/username/public_html**, и вы установили **WebTrees** 
+в папку **public_html/webtrees**, затем вы должны создать новую папку **data** 
+в своей домашней папке на том же уровне выберите вашу папку public_html, например 
+**/home/username/private/data**, и поместите туда свой файл GEDCOM.
 
-If your home folder is something like **/home/username**,
-and the root folder for your web site is **/home/username/public_html**,
-and you have installed **webtrees** in the **public_html/webtrees** folder,
-then you would create a new **data** folder in your home folder at the same
-level as your public_html folder, such as **/home/username/private/data**,
-and place your GEDCOM (family tree) file there.
+Затем измените настройки **Папки данных** на странице `Панель управления` ->
+`Веб-сайт` -> `Настройки веб-сайта` с **данных по умолчанию/** на новое
+местоположение **/home/username/private/data.**
 
-Then change the **Data folder** setting on the ``Control panel`` ->
-``Website`` -> ``Website preferences`` page from the default **data/** to the new
-location **/home/username/private/data**
+У вас будет **два** каталога данных:
 
-You will have **two** data directories:
+* [path to webtrees]/data - просто для содержания config.ini.php
+* /home/username/private/data - содержит другие данные
 
-* [path to webtrees]/data - just needs to contain config.ini.php
-* /home/username/private/data - contains everything else
+## Резервное копирование
 
-## Backup
+Резервные копии - это хорошо. Какая бы проблема у вас ни возникла, ее всегда можно 
+устранить с помощью хорошей резервной копии.
 
-Backups are good. Whatever problem you have, it can always be fixed from a good
-backup.
+Чтобы создать резервную копию **WebTrees**, вам необходимо скопировать следующее
 
-To make a backup of **webtrees**, you need to make a copy of the following
-
-1. The files in the *webtrees/data* folder.
-2. The tables in the database. Freely available tools such as
-   [phpMyAdmin](https://www.phpmyadmin.net) allow you to do this in one click. Alternatively, You can also make a backup running a mysqldump command (just replace the words *[localhost]*, *[username]*, *[password]* and *[databasename]* with your own):
-
+1. Файлы в папке *webtrees/data*.
+2. Таблицы в базе данных. Инструменты, доступные в свободном доступе, такие как
+   [phpMyAdmin](https://www.phpmyadmin.net), позволяют вам сделать это одним 
+   щелчком мыши. В качестве альтернативы вы также можете создать резервную копию, 
+   выполнив команду mysqldump (просто замените слова *[localhost]*, 
+   *[имя пользователя]*, *[пароль]* и *[имя базы данных]* на свои собственные).:
+   
     `mysqldump --host=[localhost] -u [username] -p[password] --databases [databasename] > dump_file.sql`
 
-    Note that '*-p[password]*' goes together with no space in between.
+    Обратите внимание, что '*-p[пароль]*' следует писать слитно, без пробелов
+    между символами.
 
-Remember that most web hosting services do NOT backup your data, and this is
-your responsibility.
+Помните, что большинство служб веб-хостинга не создают резервные копии ваших данных, 
+и это ваша обязанность.
 
-## Restore from backup
+## Восстановление из резервной копии
 
-To restore a backup on a new server:
+Как восстановить резервную копию на новом сервере:
 
-1. Follow the steps in [Installation](#installation) to get a clean new installation.
+1. Выполните действия, описанные в разделе [Установка](#installation), чтобы выполнить 
+новую установку без изменений.
 
-2. Replace the *data* folder with backup copy.
+2. Замените папку *data* на резервную копию.
 
-3. Restore your mysql database using phpmyadmin or running the following command line on your database server using your mysqldumpfile (just replace the words *[username]*, *[password]* and *[databasename]* with your own):
+3. Восстановите вашу базу данных mysql с помощью phpmyadmin или запустите следующую 
+командную строку на вашем сервере баз данных, используя ваш mysqldumpfile (просто 
+замените слова *[имя пользователя]*, *[пароль]* и *[имя базы данных]* на свои 
+собственные).:
 
-    `mysql -u [username] -p[password] [database_name] < [dump_file.sql]`
+    `mysql -u [имя пользователя] -p[пароль] [имя_базы данных] < [dump_file.sql]`
 
-4. Confirm the file *data/config.ini.php* contains to correct information to connect to the database and update it if needed.
+4. Подтвердите, что файл *data/config.ini.php* содержит правильную информацию 
+для подключения к базе данных и при необходимости обновите ее.

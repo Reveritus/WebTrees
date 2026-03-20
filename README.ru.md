@@ -6,58 +6,60 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/fisharebest/webtrees/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/fisharebest/webtrees/?branch=main)
 [![Code Climate](https://codeclimate.com/github/fisharebest/webtrees/badges/gpa.svg)](https://codeclimate.com/github/fisharebest/webtrees)
 [![StyleCI](https://github.styleci.io/repos/11836349/shield?branch=main)](https://github.styleci.io/repos/11836349?branch=main)
-# WebTrees - online collaborative genealogy
+# WebTrees - совместная генеалогия в режиме онлайн
 
 ## Содержание
 
 * [Лицензия](#Лицензия)
-* [Стили и стандарты кодирования](#coding-styles-and-standards)
-* [Введение](#introduction)
-* [Системные требования](#system-requirements)
-* [Браузерная совместимость](#browser-compatibility)
-* [Установка](#installation)
-* [Обновление](#upgrading)
-* [Создание и развитие](#building-and-developing)
-* [Файлы GEDCOM (семейное древо)](#gedcom-family-tree-files)
-* [Безопасность](#security)
-* [Резервное копирование](#backup)
-* [Восстановление из резервной копии](#restore-from-backup)
+* [Стили и стандарты кодирования](#Стили-и-стандарты-кодирования)
+* [Введение](#Введение)
+* [Системные требования](#Системные-требования)
+* [Браузерная совместимость](#Браузерная-совместимость)
+* [Установка](#Установка)
+* [Обновление](#Обновление)
+* [Создание и развитие](#Создание-и-развитие)
+* [Файлы GEDCOM](#Файлы-GEDCOM)
+* [Безопасность](#Безопасность)
+* [Резервное копирование](#Резервное-копирование)
+* [Восстановление из резервной копии](#Восстановление-из-резервной-копии)
 
 ## Лицензия
 
-* **webtrees: online genealogy**
+* **WebTrees: онлайн генеалогия**
 * Copyright 2022 webtrees development team
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+Эта программа является свободным программным обеспечением: вы 
+можете распространять  ее и/или модифицировать в соответствии
+с условиями GNU General Public License,  опубликованными Фондом
+свободного программного обеспечения, либо в версии 3 Лицензии, 
+либо (по вашему выбору) в любой более поздней версии.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
+Эта программа распространяется в надежде, что она будет полезной,
+но БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ; даже без подразумеваемых гарантий
+коммерческой ЦЕННОСТИ или пригодности для ОПРЕДЕЛЕННОЙ ЦЕЛИ. 
+Более подробную информацию смотрите в разделе GNU General 
+Public License.
 
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <https://www.gnu.org/licenses/>.
+Вы должны были получить копию Общей публичной лицензии GNU
+вместе с этой программой. Если нет, смотрите <https://www.gnu.org/licenses/>.
 
-## Coding styles and standards
+## Стили и стандарты кодирования
 
-webtrees follows the [PHP Standards Recommendations](https://www.php-fig.org/psr).
+WebTrees следует [PHP Standards Recommendations](https://www.php-fig.org/psr).
 
-* [PSR-1](https://www.php-fig.org/psr/psr-1) - Basic Coding Standard
-* [PSR-2](https://www.php-fig.org/psr/psr-2) - Coding Style Guide
-* [PSR-4](https://www.php-fig.org/psr/psr-4) - Autoloading Standard
-* [PSR-6](https://www.php-fig.org/psr/psr-6) - Cache
-* [PSR-7](https://www.php-fig.org/psr/psr-7) - HTTP Message Interface
-* [PSR-11](https://www.php-fig.org/psr/psr-11) - Container Interface
-* [PSR-12](https://www.php-fig.org/psr/psr-12) - Extended Coding Style Guide
-* [PSR-15](https://www.php-fig.org/psr/psr-15) - HTTP Handlers
-* [PSR-17](https://www.php-fig.org/psr/psr-17) - HTTP Factories
+* [PSR-1](https://www.php-fig.org/psr/psr-1) - Базовый стандарт кодирования
+* [PSR-2](https://www.php-fig.org/psr/psr-2) - Руководство по стилю кодирования
+* [PSR-4](https://www.php-fig.org/psr/psr-4) - Стандартная автоматическая загрузка
+* [PSR-6](https://www.php-fig.org/psr/psr-6) - Кэш
+* [PSR-7](https://www.php-fig.org/psr/psr-7) - Интерфейс HTTP-сообщений
+* [PSR-11](https://www.php-fig.org/psr/psr-11) - Интерфейс контейнера
+* [PSR-12](https://www.php-fig.org/psr/psr-12) - Расширенное руководство по стилю кодирования
+* [PSR-15](https://www.php-fig.org/psr/psr-15) - HTTP-обработчики
+* [PSR-17](https://www.php-fig.org/psr/psr-17) - HTTP-фабрики
 
-We do not currently use [PSR-3 (logging)](https://www.php-fig.org/psr/psr-3) - but we plan to do so in the future.
+В настоящее время мы не используем [PSR-3 (Протоколирование)](https://www.php-fig.org/psr/psr-3) - но мы планируем сделать это в будущем.
 
-For JavaScript, we use [semistandard](https://github.com/standard/semistandard).
+Для JavaScript мы используем [полустандарт](https://github.com/standard/semistandard).
 
 ## Введение
 
@@ -184,7 +186,7 @@ Chrome и Safari. Поддержка других браузеров и боле
 Вам нужно будет повторно запускать второй из них каждый раз, когда вы будете изменять
 файл `webtrees.js`.
 
-## Файлы Gedcom (семейное древо)
+## Файлы Gedcom
 
 Когда вы импортируете файл семейного древа (GEDCOM) в **WebTrees**, данные из файла
 переносятся в таблицы базы данных. Сам файл остается в папке **webtrees/data** и больше
